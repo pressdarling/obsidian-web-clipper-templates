@@ -1,0 +1,12 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "YouTube timestamp",
+	"behavior": "append-specific",
+	"noteContentFormat": "- [{{selector:.ytp-time-current|first}}]({{url|split:\"&t=\"|first}}&t={{selector:.ytp-time-current|first|slice:0,-3|replace:\"\\:\":\"h\"}}m{{selector:.ytp-time-current|first|slice:-2}}s)",
+	"properties": [],
+	"triggers": [
+		"https://www.youtube.com/watch?v="
+	],
+	"noteNameFormat": "Timestamps",
+	"path": "YouTube Notes"
+}

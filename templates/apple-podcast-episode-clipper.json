@@ -1,0 +1,83 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Apple Podcast Episode",
+	"behavior": "create",
+	"noteContentFormat": "\n#podcast/backlog\n\n# {{schema:@PodcastEpisode:name}}\n\n{{schema:@PodcastEpisode:thumbnailUrl|image:\"thumbnail|200\"}}\n\n## Description\n\n{{schema:@PodcastEpisode:description}}\n\n## Notes\n\n",
+	"properties": [
+		{
+			"name": "created",
+			"value": "{{time|date:\\\"YYYY-MM-DDTHH:mm:ssZ\\\"}}",
+			"type": "datetime"
+		},
+		{
+			"name": "reviewed",
+			"value": "",
+			"type": "datetime"
+		},
+		{
+			"name": "tags",
+			"value": "podcasts, episode",
+			"type": "multitext"
+		},
+		{
+			"name": "show",
+			"value": "[[{{schema:@PodcastEpisode:partOfSeries.name|safe_name}}]]",
+			"type": "text"
+		},
+		{
+			"name": "title",
+			"value": "{{schema:@PodcastEpisode:name}}",
+			"type": "text"
+		},
+		{
+			"name": "published",
+			"value": "{{schema:@PodcastEpisode:datePublished|date:\\\"YYYY-MM-DD\\\"}}",
+			"type": "datetime"
+		},
+		{
+			"name": "url",
+			"value": "{{schema:@PodcastEpisode:url}}",
+			"type": "text"
+		},
+		{
+			"name": "url_apple",
+			"value": "{{schema:@PodcastEpisode:url}}",
+			"type": "text"
+		},
+		{
+			"name": "url_youtube",
+			"value": "",
+			"type": "text"
+		},
+		{
+			"name": "url_shownotes",
+			"value": "",
+			"type": "text"
+		},
+		{
+			"name": "related",
+			"value": "[[podcast episodes]]",
+			"type": "multitext"
+		},
+		{
+			"name": "guests",
+			"value": "",
+			"type": "text"
+		},
+		{
+			"name": "thumbnail",
+			"value": "{{schema:@PodcastEpisode:thumbnailUrl}}",
+			"type": "text"
+		},
+		{
+			"name": "duration",
+			"value": "{{schema:@PodcastEpisode:duration}}",
+			"type": "text"
+		}
+	],
+	"triggers": [
+		"https://podcasts.apple.com/"
+	],
+	"noteNameFormat": "{{schema:@PodcastEpisode:datePublished|date:\"YYYY-MM-DD\"}} PODCAST {{schema:@PodcastEpisode:partOfSeries.name|safe_name}} {{schema:@PodcastEpisode:episodeNumber}} {{schema:@PodcastEpisode:name|safe_name}}",
+	"path": "podcasts"
+}

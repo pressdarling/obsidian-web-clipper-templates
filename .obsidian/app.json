@@ -1,0 +1,8 @@
+{
+  "trashOption": "local",
+  "useMarkdownLinks": true,
+  "showUnsupportedFiles": true,
+  "attachmentFolderPath": "attachments",
+  "newLinkFormat": "absolute",
+  "alwaysUpdateLinks": true
+}

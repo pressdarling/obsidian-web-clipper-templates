@@ -1,0 +1,73 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "youtube.com - transcript",
+	"behavior": "create",
+	"noteContentFormat": "\n# {{title}}\n\n![{{schema:name}}]({{url|replace:\"watch?v=\":\"embed/\"}})\n\n{{selectorHtml:#description-inline-expander|remove_html:(\"#structured-description, #snippet, tp-yt-paper-button\")|strip_tags|callout:(\"summary\",\"Description\",true)}}\n\n{{selectorHtml:ytd-engagement-panel-section-list-renderer[visibility$=\\\"EXPANDED\\\"] #segments-container|remove_html:(\"ytd-transcript-section-header-renderer, dom-if\")|strip_tags:(\"yt-formatted-string, yt-img-shadow, ytd-transcript-segment-renderer\")|join|markdown|callout:(\"transcript\",\"Transcript (Youtube)\",true)}}",
+	"properties": [
+		{
+			"name": "type",
+			"value": "youtube",
+			"type": "text"
+		},
+		{
+			"name": "URL",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "URL_Retrieved",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "URL_Published",
+			"value": "{{schema:uploadDate|date:\\\"YYYY-MM-DD\\\"}}",
+			"type": "date"
+		},
+		{
+			"name": "URL_Title",
+			"value": "{{title}}",
+			"type": "text"
+		},
+		{
+			"name": "URL_Description",
+			"value": "{{description}}",
+			"type": "text"
+		},
+		{
+			"name": "Youtube_Channel_Name",
+			"value": "{{author|split:\\\", \\\"|first}}",
+			"type": "text"
+		},
+		{
+			"name": "Youtube_Channel_URL",
+			"value": "{{schema:@BreadcrumbList:itemListElement[0].item.@id}}",
+			"type": "text"
+		},
+		{
+			"name": "Youtube_ID",
+			"value": "{{url|split:\\\"=\\\"|slice:1}}",
+			"type": "text"
+		},
+		{
+			"name": "Youtube_Duration",
+			"value": "{{selector:#ytd-player .ytp-time-duration}}",
+			"type": "text"
+		},
+		{
+			"name": "speakers",
+			"value": "",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "youtube, inbox",
+			"type": "multitext"
+		}
+	],
+	"triggers": [
+		"https://www.youtube.com/watch?v="
+	],
+	"noteNameFormat": "{{domain}} - {{title|safe_name}} - {{schema:@VideoObject:uploadDate|date:\"YYYY-MM-DD\"}}",
+	"path": "fullsource/webpages/{{domain}}"
+}

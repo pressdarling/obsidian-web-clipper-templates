@@ -1,0 +1,48 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "The Hacker News",
+	"behavior": "create",
+	"noteContentFormat": "\n#webclip/unread\n\n# {{title}}\n\n{{selectorHtml:#articlebody|remove_html:(\".dog_two,.note-b\")|markdown}}",
+	"properties": [
+		{
+			"name": "created",
+			"value": "{{time|date:\\\"YYYY-MM-DDTHH:mm:ssZ\\\"}}",
+			"type": "date"
+		},
+		{
+			"name": "reviewed",
+			"value": "",
+			"type": "text"
+		},
+		{
+			"name": "url",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "title",
+			"value": "{{title}}",
+			"type": "text"
+		},
+		{
+			"name": "author",
+			"value": "{{selector:.post-body > div[itemprop=\\\"author\\\"] > meta[itemprop=\\\"name\\\"]?content|split:\\\",\\\"|join}}",
+			"type": "multitext"
+		},
+		{
+			"name": "published",
+			"value": "{{selectorHtml:.post-body > meta[itemprop=\\\"datePublished\\\"]?content|date:\\\"YYYY-MM-DDTHH:mm:ssZ\\\"}}",
+			"type": "date"
+		},
+		{
+			"name": "description",
+			"value": "{{description}}",
+			"type": "text"
+		}
+	],
+	"triggers": [
+		"https://thehackernews.com/"
+	],
+	"noteNameFormat": "{{selectorHtml:.post-body > meta[itemprop=\"datePublished\"]?content|date:\"YYYY-MM-DD\"}} WEB {{title|safe_name}}",
+	"path": "webclips"
+}

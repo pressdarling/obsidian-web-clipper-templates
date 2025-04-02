@@ -1,1 +1,17 @@
+# Undesired obsidian settings, plugins, etc.
+# We need *Some* so we can address consistency
+.obsidian/core-plugins.json
+.obsidian/appearance.json
+.obsidian/workspace.json
+.obsidian/workspaces.json
+.obsidian/plugins/**/main.js
+.obsidian/plugins/**/styles.css
+
+# obsidian trash-folder
+.trash/
+# macOS Finder, but I'm usually in the terminal
 .DS_Store
+
+# IDE environments
+.vscode
+.idea
