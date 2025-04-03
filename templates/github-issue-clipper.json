@@ -43,6 +43,6 @@
 	"triggers": [
 		"/^https.+github.+issues.+$/"
 	],
-	"noteNameFormat": "{{selector:relative-time?datetime|first|date:\"YYYY-MM-DD\"}} WEB {{title|replace:\"/\":\" - \"|safe_name}}",
-	"path": "webclips"
+	"noteNameFormat": "{{selector:relative-time?datetime|first|date:\"YYYY-MM-DD\"|safe_name|trim}} WEB {{title|replace:\"/\":\" - \"|safe_name|trim}}",
+	"path": "Clippings/GitHub"
 }

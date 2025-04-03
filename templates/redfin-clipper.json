@@ -2,8 +2,8 @@
 	"schemaVersion": "0.1.0",
 	"name": "Redfin",
 	"behavior": "create",
-	"noteNameFormat": "{{meta:name:twitter:text:street_address}}, {{meta:name:twitter:text:city}}",
-	"path": "Clippings",
+	"noteNameFormat": "{{meta:name:twitter:text:street_address|safe_name}} {{meta:name:twitter:text:city|safe_name}}",
+	"path": "Clippings/Maps",
 	"noteContentFormat": "",
 	"properties": [
 		{

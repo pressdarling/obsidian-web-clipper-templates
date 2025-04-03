@@ -6,7 +6,7 @@
 	"properties": [
 		{
 			"name": "title",
-			"value": "{{title|safe_name}}",
+			"value": "{{title}}",
 			"type": "text"
 		},
 		{
@@ -43,6 +43,6 @@
 	"triggers": [
 		"https://indeed.com"
 	],
-	"noteNameFormat": "{{title|safe_name}}",
-	"path": "{{date|date:\"MM-DD\"}}"
+	"noteNameFormat": "{{title|safe_name|trim}}",
+	"path": "Clippings/Jobs/{{date|date:\"YYYY/MM - Week WW\"}}"
 }

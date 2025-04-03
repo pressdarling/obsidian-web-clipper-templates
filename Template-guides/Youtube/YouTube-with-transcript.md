@@ -69,7 +69,7 @@ This template should be able to extract:
     }
   ],
   "triggers": [],
-  "noteNameFormat": "{{schema:@VideoObject:uploadDate|date:\"YYYY-MM-DD\"}} VIDEO {{schema:@VideoObject:author}} - {{title|safe_name}}",
+  "noteNameFormat": "{{schema:@VideoObject:uploadDate|date:\"YYYY-MM-DD\"|safe_name}} VIDEO {{schema:@VideoObject:author}} - {{title|safe_name}}",
   "path": ""
 }
 ```

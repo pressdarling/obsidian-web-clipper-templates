@@ -3,7 +3,7 @@
 	"name": "Goodreads",
 	"behavior": "create",
 	"noteNameFormat": "{{selector:.BookPageTitleSection__title h1}}",
-	"path": "References",
+	"path": "Clippings",
 	"noteContentFormat": "{{selector:.BookPageMetadataSection__description}}",
 	"properties": [
 		{

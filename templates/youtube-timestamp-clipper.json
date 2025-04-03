@@ -7,6 +7,6 @@
 	"triggers": [
 		"https://www.youtube.com/watch?v="
 	],
-	"noteNameFormat": "Timestamps",
-	"path": "YouTube Notes"
+	"noteNameFormat": "{{schema:@VideoObject:uploadDate|date:\"YYYY-MM-DD\"|safe_name}} VIDEO {{schema:@VideoObject:author}} - {{schema:@VideoObject:name|safe_name|trim}} - Timestamps",
+	"path": "Clippings/Videos"
 }

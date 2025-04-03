@@ -58,6 +58,6 @@
 	"triggers": [
 		"schema:@Recipe"
 	],
-	"noteNameFormat": "{{title}}",
-	"path": "References"
+	"noteNameFormat": "{{title|safe_name}}",
+	"path": "Clippings/Recipes"
 }

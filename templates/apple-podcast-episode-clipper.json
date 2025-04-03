@@ -79,5 +79,5 @@
 		"https://podcasts.apple.com/"
 	],
 	"noteNameFormat": "{{schema:@PodcastEpisode:datePublished|date:\"YYYY-MM-DD\"}} PODCAST {{schema:@PodcastEpisode:partOfSeries.name|safe_name}} {{schema:@PodcastEpisode:episodeNumber}} {{schema:@PodcastEpisode:name|safe_name}}",
-	"path": "podcasts"
+	"path": "Clippings/Podcast"
 }

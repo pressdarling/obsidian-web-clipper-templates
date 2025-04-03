@@ -2,8 +2,8 @@
 	"schemaVersion": "0.1.0",
 	"name": "arXiv",
 	"behavior": "create",
-	"noteNameFormat": "{{title}}",
-	"path": "Clippings",
+	"noteNameFormat": "{{title|safe_name}}",
+	"path": "Clippings/Research",
 	"noteContentFormat": "{{content}}",
 	"properties": [
 		{

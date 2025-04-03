@@ -43,6 +43,6 @@
 	"triggers": [
 		"https://www.reddit.com"
 	],
-	"noteNameFormat": "{{selector:shreddit-post?created-timestamp|date:\"YYYY-MM-DD\"}} REDDIT {{selector:shreddit-post?post-title|trim|safe_name}}",
-	"path": "webclips"
+	"noteNameFormat": "{{selector:shreddit-post?created-timestamp|date:\"YYYY-MM-DD\"|safe_name}} REDDIT {{selector:shreddit-post?post-title|trim|safe_name}}",
+	"path": "Clippings/Posts"
 }

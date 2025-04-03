@@ -44,6 +44,6 @@
 		"https://chatgpt.com/share",
 		"https://chatgpt.com/c"
 	],
-	"noteNameFormat": "{{title}}",
-	"path": "Clippings"
+	"noteNameFormat": "{{title|safe_name|trim}}",
+	"path": "Clippings/Chats"
 }

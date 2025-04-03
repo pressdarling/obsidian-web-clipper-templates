@@ -94,7 +94,7 @@ You can also copy the codeblock below to paste into Obsidian Clipper with the fo
     }
   ],
   "triggers": [],
-  "noteNameFormat": "{{schema:@VideoObject:uploadDate|date:\"YYYY-MM-DD\"}} VIDEO {{schema:@VideoObject:author}} - {{title|safe_name}}",
+  "noteNameFormat": "{{schema:@VideoObject:uploadDate|date:\"YYYY-MM-DD\"|safe_name}} VIDEO {{schema:@VideoObject:author}} - {{title|safe_name}}",
   "path": ""
 }
 ```

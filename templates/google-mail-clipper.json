@@ -34,5 +34,5 @@
 		"https://mail.google.com/mail"
 	],
 	"noteNameFormat": "{{selector:span[class=\"g3\"]?title|date:\"YYYY-MM-DD\"}} MAIL {{selector:div.ha > h2|safe_name}}",
-	"path": "mail"
+	"path": "Clippings/Mail"
 }
