@@ -1,0 +1,85 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Indeed Job Application",
+	"behavior": "create",
+	"noteContentFormat": "# {{schema:title}}\n\n## Company Information\n**Company:** {{schema:hiringOrganization.name}}\n**Location:** {{schema:jobLocation.address.addressLocality}}, {{schema:jobLocation.address.addressRegion}} {{schema:jobLocation.address.postalCode}}\n**Coordinates:** {{selector:script:contains(\"window._initialData\")|replace:\"/.*\\\"latitude\\\":([-0-9.]+),\\\"longitude\\\":([-0-9.]+).*/$1,$2/s\"}}\n[View on Map](https://www.google.com/maps?q={{selector:script:contains(\"window._initialData\")|replace:\"/.*\\\"latitude\\\":([-0-9.]+),\\\"longitude\\\":([-0-9.]+).*/$1,$2/s\"}})\n\n## Job Details\n**Reference #:** {{selector:script:contains(\"window._initialData\")|replace:\"/.*\\\"refNum\\\":\\\"([^\\\"]+)\\\".*/$1/s\"}}\n**Posted:** {{schema:datePosted|date:\"YYYY-MM-DD\"}}\n**Valid Through:** {{schema:validThrough|date:\"YYYY-MM-DD\"}}\n**Normalized Title:** {{selector:script:contains(\"window._initialData\")|replace:\"/.*\\\"normalizedTitle\\\":\\\"([^\\\"]+)\\\".*/$1/s\"}}\n\n## Job Categories\n{{selector:script:contains(\"window._initialData\")|replace:\"/.*\\\"occupations\\\":\\[(.+?)\\].*/$1/s\"|replace:\"/\\{[^}]*\\\"label\\\":\\\"([^\\\"]+)\\\"[^}]*\\}/g\":\"- $1\"}}\n\n## Skills & Attributes\n{{selector:script:contains(\"window._initialData\")|replace:\"/.*\\\"attributes\\\":\\[(.+?)\\].*/$1/s\"|replace:\"/\\{[^}]*\\\"label\\\":\\\"([^\\\"]+)\\\"[^}]*\\}/g\":\"- $1\"}}\n\n## AI Analysis\n\n### Smart Tags\n{{"Identify 5-8 relevant tags for this job post that would help categorize it effectively in a personal job search database"|list}}\n\n### Key Skills to Highlight\n{{"Identify 3-5 critical skills for this role that should be emphasized in a resume and cover letter"|list}}\n\n### Application Strategy\n{{"Provide 2-3 brief suggestions for tailoring an application to this specific role"|list}}\n\n## Salary Information\n{{selector:script:contains(\"window._initialData\")|replace:\"/.*\\\"compensation\\\":\\{(.+?)\\}.*/$1/s\"}}\n{{"If salary information is not explicitly provided in the job posting, estimate a reasonable salary range based on the role, location, and required skills (1-2 sentences only)"}}\n\n## Company Ratings\n{{selector:script:contains(\"window._initialData\")|replace:\"/.*\\\"overallRating\\\":\\{[^}]*\\\"count\\\":(\\d+),\\\"value\\\":(\\d+\\.\\d+).*/$2 ⭐ from $1 reviews/s\"}}\n\n## Job Description\n{{schema:description|markdown}}\n\n## Application Tracking\n- [ ] Resume customized with matching keywords\n- [ ] Applied on: {{date|date:\"YYYY-MM-DD\"}}\n- [ ] Follow-up sent\n- [ ] Interview scheduled\n\n## Notes\n\n\n## Source\n{{selector:link[rel=\"canonical\"]?href}}",
+	"properties": [
+		{
+			"name": "title",
+			"value": "{{schema:title}}",
+			"type": "text"
+		},
+		{
+			"name": "company",
+			"value": "{{schema:hiringOrganization.name}}",
+			"type": "text"
+		},
+		{
+			"name": "location",
+			"value": "{{schema:jobLocation.address.addressLocality}}, {{schema:jobLocation.address.addressRegion}} {{schema:jobLocation.address.postalCode}}",
+			"type": "text"
+		},
+		{
+			"name": "coordinates",
+			"value": "{{selector:script:contains(\"window._initialData\")|replace:\"/.*\\\"latitude\\\":([-0-9.]+),\\\"longitude\\\":([-0-9.]+).*/$1,$2/s\"}}",
+			"type": "text"
+		},
+		{
+			"name": "datePosted",
+			"value": "{{schema:datePosted|date:\"YYYY-MM-DD\"}}",
+			"type": "date"
+		},
+		{
+			"name": "validThrough",
+			"value": "{{schema:validThrough|date:\"YYYY-MM-DD\"}}",
+			"type": "date"
+		},
+		{
+			"name": "refNumber",
+			"value": "{{selector:script:contains(\"window._initialData\")|replace:\"/.*\\\"refNum\\\":\\\"([^\\\"]+)\\\".*/$1/s\"}}",
+			"type": "text"
+		},
+		{
+			"name": "normalizedTitle",
+			"value": "{{selector:script:contains(\"window._initialData\")|replace:\"/.*\\\"normalizedTitle\\\":\\\"([^\\\"]+)\\\".*/$1/s\"}}",
+			"type": "text"
+		},
+		{
+			"name": "skills",
+			"value": "{{selector:script:contains(\"window._initialData\")|replace:\"/.*\\\"attributes\\\":\\[(.+?)\\].*/$1/s\"|replace:\"/\\{[^}]*\\\"label\\\":\\\"([^\\\"]+)\\\"[^}]*\\}/g\":\"$1\"|replace:\"/\\},\\{/g\":\", \"}}",
+			"type": "multitext"
+		},
+		{
+			"name": "rating",
+			"value": "{{selector:script:contains(\"window._initialData\")|replace:\"/.*\\\"overallRating\\\":\\{[^}]*\\\"value\\\":(\\d+\\.\\d+).*/$1/s\"}}",
+			"type": "text"
+		},
+		{
+			"name": "status",
+			"value": "to-apply",
+			"type": "text"
+		},
+		{
+			"name": "url",
+			"value": "{{selector:link[rel=\"canonical\"]?href}}",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "{{"Identify 5-8 relevant tags for this job post that would be useful for categorizing it in a personal job search database. Return only the tags as a comma-separated list without explanations."}}",
+			"type": "multitext"
+		},
+		{
+			"name": "keySkills",
+			"value": "{{"Identify 3-5 most critical skills for this role. Return only the skill names as a comma-separated list."}}",
+			"type": "multitext"
+		}
+	],
+	"triggers": [
+		"schema:@JobPosting",
+		"/indeed\\.com\\/.*viewjob/"
+	],
+	"noteNameFormat": "{{schema:title|safe_name}} - {{schema:hiringOrganization.name|safe_name}}",
+	"path": "Clippings/Jobs/{{date|date:\"YYYY/MM - Week WW\"}}""interpreterContext": "{{schema:description}}"
+	"interpreterContext": "{{schema:description}}"
+}

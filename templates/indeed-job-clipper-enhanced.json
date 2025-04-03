@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "0.1.0",
+  "name": "Indeed Job Post",
+  "behavior": "create",
+  "noteNameFormat": "{{schema:@JobPosting:validThrough|date:\"YYYY-MM-DD\"}} JOB {{schema:@JobPosting:title|safe_name}}",
+  "path": "Clippings/Jobs/{{date|date:\"YYYY/MM - Week WW\"}}""interpreterContext": "{{schema:description}}"
+  "interpreterContext": "{{schema:@JobPosting:description|remove_html|strip_attr|strip_tags}}",
+  "noteContentFormat": "# {{schema:@JobPosting:title}}\n\n**Company:** {{schema:@JobPosting:hiringOrganization.name}}\n\n**Location:** {{schema:@JobPosting:jobLocation.address.addressLocality}}, {{schema:@JobPosting:jobLocation.address.addressRegion}} {{schema:@JobPosting:jobLocation.address.postalCode}}\n\n**Posted on:** {{schema:@JobPosting:datePosted|date:\"YYYY-MM-DD\"}}\n\n**Valid through:** {{schema:@JobPosting:validThrough|date:\"YYYY-MM-DD\"}}\n\n**Apply URL:** [View on Indeed]({{url}})\n\n---\n\n## Description\n\n{{schema:@JobPosting:description|markdown}}\n\n---\n\n## Summary\n\n{{"Summarise the key responsibilities and required qualifications"|blockquote}}\n\n---\n\n![{{title}}]({{image}})",
+  "properties": [
+    {
+      "name": "created",
+      "value": "{{time|date:\"YYYY-MM-DDTHH:mm:ssZ\"}}",
+      "type": "datetime"
+    },
+    {
+      "name": "title",
+      "value": "{{schema:@JobPosting:title}}",
+      "type": "text"
+    },
+    {
+      "name": "company",
+      "value": "{{schema:@JobPosting:hiringOrganization.name}}",
+      "type": "text"
+    },
+    {
+      "name": "location",
+      "value": "{{schema:@JobPosting:jobLocation.address.addressLocality}}, {{schema:@JobPosting:jobLocation.address.addressRegion}}",
+      "type": "text"
+    },
+    {
+      "name": "postcode",
+      "value": "{{schema:@JobPosting:jobLocation.address.postalCode}}",
+      "type": "text"
+    },
+    {
+      "name": "posted",
+      "value": "{{schema:@JobPosting:datePosted|date:\"YYYY-MM-DD\"}}",
+      "type": "date"
+    },
+    {
+      "name": "valid_through",
+      "value": "{{schema:@JobPosting:validThrough|date:\"YYYY-MM-DD\"}}",
+      "type": "date"
+    },
+    {
+      "name": "employer_page",
+      "value": "{{schema:@JobPosting:hiringOrganization.sameAs}}",
+      "type": "text"
+    },
+    {
+      "name": "image",
+      "value": "{{image}}",
+      "type": "text"
+    },
+    {
+      "name": "canonical",
+      "value": "{{meta:link[rel='canonical']?href}}",
+      "type": "text"
+    },
+    {
+      "name": "rating",
+      "value": "{{"What is the employer rating if available? Return a number or 'n/a'."}}",
+      "type": "text"
+    },
+    {
+      "name": "job_id",
+      "value": "{{url|replace:\".*jk=([^&]+).*\":\\"$1\\"}}",
+      "type": "text"
+    },
+    {
+      "name": "tags",
+      "value": "{{"Generate 5 relevant tags based on the job description"|list}}",
+      "type": "multitext"
+    }
+  ]
+}
