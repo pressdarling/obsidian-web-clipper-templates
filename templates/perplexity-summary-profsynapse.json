@@ -1,0 +1,33 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Perplexity",
+	"behavior": "create",
+	"noteContentFormat": "{{\"Output an expanded and more comprehensive research note on the content as a professional and conversational lecture in proper markdown focused on practically teaching someone about the provided content as if you were speaking to them directly.\"}}\n\n**References**\n{{\"output a list of markdown hyperlinks references by the content\"}}\n\n**Suggested Notes**:\n{{\"a bulleted list of [[wikilink]] bracketed suggested follow up notes based on the content.\"}}\n\n>[!info]- Content\n{{content|blockquote}}",
+	"properties": [
+		{
+			"name": "description",
+			"value": "{{\\\"a one sentence description of the note content\\\"}}",
+			"type": "text"
+		},
+		{
+			"name": "url",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "date",
+			"value": "{{date|date:\"YYYY/MM - Week WW\"}}",
+			"type": "date"
+		},
+		{
+			"name": "tags",
+			"value": "{{\\\"an array of comma separated tags in camelCase related to the content of the content\\\"}}, perplexity",
+			"type": "multitext"
+		}
+	],
+	"triggers": [
+		"https://www.perplexity.ai/"
+	],
+	"noteNameFormat": "{{\"a brief 1-3 word title of the note based on the content\"}}",
+	"path": "Clippings/Chats"
+}

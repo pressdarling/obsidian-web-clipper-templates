@@ -1,0 +1,41 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Documentation",
+	"behavior": "create",
+	"noteContentFormat": "> [!summary]- Summary\n{{\"a bullet pointed summary of the documentation\"|blockquote}}\n\n{{content}}\n\n**Example**\n{{\"a simple and practical example of using what is addressed in the documentation, using code blocks for examples\"}}",
+	"properties": [
+		{
+			"name": "title",
+			"value": "{{title}}",
+			"type": "text"
+		},
+		{
+			"name": "description",
+			"value": "{{description}}",
+			"type": "text"
+		},
+		{
+			"name": "clipdate",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "source",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "published",
+			"value": "{{published}}",
+			"type": "date"
+		},
+		{
+			"name": "tags",
+			"value": "{{\\\"an array of comma separated tags in camelCase related to the content of the documentation\\\"}}",
+			"type": "multitext"
+		}
+	],
+	"triggers": [],
+	"noteNameFormat": "{{title}} - Documentation",
+	"path": "03 - 💻 Code/Documentation"
+}

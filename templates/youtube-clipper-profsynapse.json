@@ -1,0 +1,38 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Youtube",
+	"behavior": "create",
+	"noteContentFormat": ">[!summary]- Summary\n{{\"a bulleted summary of the youtube transcript\"|blockquote}}\n\n{{content}}\n\n# Transcript\n{{selectorHtml:.ytd-transcript-segment-list-renderer|replace:\\\"&nbsp;\\\":\\\" \\\"|join|markdown}}",
+	"properties": [
+		{
+			"name": "title",
+			"value": "{{title}}",
+			"type": "text"
+		},
+		{
+			"name": "description",
+			"value": "{{\\\"a one sentence description of the content\\\"}}",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "{{\\\"an array of tags for an obsidian vault, using snake case when there are multiple words. Omit the words tags:, return only the tags themselves.\\\"}}",
+			"type": "multitext"
+		},
+		{
+			"name": "url",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "clipdate",
+			"value": "{{date}}",
+			"type": "date"
+		}
+	],
+	"triggers": [
+		"https://www.youtube.com"
+	],
+	"noteNameFormat": "{{title|safe_name|trim}}",
+	"path": "Clippings/Video"
+}

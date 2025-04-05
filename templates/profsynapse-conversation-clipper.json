@@ -1,0 +1,19 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Conversation",
+	"behavior": "create",
+	"noteContentFormat": "\n{{\"output a JSON object representing the conversation structured as a fenced in JSON codeblock with role (human or assistant) and then content for the dialogue\"}}\n\n{{content}}",
+	"properties": [
+		{
+			"name": "Type",
+			"value": "conversation",
+			"type": "text"
+		}
+	],
+	"triggers": [
+		"https://www.chatgpt.com",
+		"https://www.claude.ai"
+	],
+	"noteNameFormat": "{{\"A 1-4 word title for the conversations\"}}",
+	"path": "Conversations"
+}
