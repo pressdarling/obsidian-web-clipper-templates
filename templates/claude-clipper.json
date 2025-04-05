@@ -26,7 +26,7 @@
 		},
 		{
 			"name": "created",
-			"value": "{{date}}",
+			"value": "{{date|date:\"YYYY/MM - Week WW\"}}",
 			"type": "date"
 		},
 		{
@@ -36,7 +36,7 @@
 		},
 		{
 			"name": "tags",
-			"value": "chatgpt/conversation",
+			"value": "{{tags}},claude/conversation",
 			"type": "multitext"
 		}
 	],

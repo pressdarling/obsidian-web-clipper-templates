@@ -2,7 +2,7 @@
 	"schemaVersion": "0.1.0",
 	"name": "Goodreads",
 	"behavior": "create",
-	"noteNameFormat": "{{selector:.BookPageTitleSection__title h1}}",
+	"noteNameFormat": "{{selector:.BookPageTitleSection__title h1|safe_name|trim}}",
 	"path": "Clippings",
 	"noteContentFormat": "{{selector:.BookPageMetadataSection__description}}",
 	"properties": [

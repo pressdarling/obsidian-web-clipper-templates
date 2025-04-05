@@ -2,12 +2,12 @@
 	"schemaVersion": "0.1.0",
 	"name": "Reddit Post",
 	"behavior": "create",
-	"noteContentFormat": "\n#webclip/unread\n\n> Posted in **{{selector:shreddit-post?subreddit-prefixed-name}}** by *{{selector:shreddit-post?author}}* at {{selector:shreddit-post?created-timestamp|date:\"YYYY-MM-DDTHH:mm:ssZ\"}} (⬆️ {{selector:shreddit-post?score}})\n\n\n# {{selector:shreddit-post?post-title|trim}}\n\n{{selectorHtml:shreddit-post > div[class=\"text-neutral-content\"]|markdown}}\n\n{{selector:zoomable-img > img?src|image}}\n\n## Comments ({{selector:shreddit-comment-tree?totalcomments}})\n\n(WIP: get the first author, and first comment from arrays)\n\n### {{selector:shreddit-comment-tree > shreddit-comment?author|first}}:\n> {{selector:shreddit-comment-tree > shreddit-comment > div[slot=comment]|first}}",
+	"noteContentFormat": "> Posted in **{{selector:shreddit-post?subreddit-prefixed-name}}** by *{{selector:shreddit-post?author}}* at {{selector:shreddit-post?created-timestamp|date:\"YYYY-MM-DDTHH:mm:ssZ\"}} (⬆️ {{selector:shreddit-post?score}})\n\n\n# {{selector:shreddit-post?post-title|trim}}\n\n## Summary\n\n{{\"A one-paragraph summary of the main post, followed by five bullet points\"}}\n\n## Post content\n\n{{selectorHtml:shreddit-post > div[class=\"text-neutral-content\"]|markdown}}\n\n{{selector:zoomable-img > img?src|image}}\n\n## Comments ({{selector:shreddit-comment-tree?totalcomments}})\n\n{{\"A one-paragraph summary of the tone of the comments, with some choice quotes excerpted below in bullet points\"}}\n\n### {{selector:shreddit-comment-tree > shreddit-comment?author|first}}:\n> {{selector:shreddit-comment-tree > shreddit-comment > div[slot=comment]|first}}",
 	"properties": [
 		{
 			"name": "created",
 			"value": "{{time|date:\\\"YYYY-MM-DDTHH:mm:ssZ\\\"}}",
-			"type": "datetime"
+			"type": "date"
 		},
 		{
 			"name": "reviewed",
@@ -21,8 +21,8 @@
 		},
 		{
 			"name": "tags",
-			"value": "source/reddit",
-			"type": "text"
+			"value": "source/reddit, {{selector:shreddit-post?subreddit-prefixed-name|replace:\\\"/r/\\\"|trim|kebab-case}}, reddit, post, {{\\\"5 keyword tags appropriate to the content of the posts and content for my Obsidian vault\\\"|kebab-case}}",
+			"type": "multitext"
 		},
 		{
 			"name": "title",
@@ -32,17 +32,18 @@
 		{
 			"name": "published",
 			"value": "{{selector:shreddit-post?created-timestamp|date:\\\"YYYY-MM-DDTHH:mm:ssZ\\\"}}",
-			"type": "datetime"
+			"type": "date"
 		},
 		{
 			"name": "subreddit",
-			"value": "{{selector:shreddit-post?subreddit-prefixed-name}}",
+			"value": "{{selector:shreddit-post?subreddit-prefixed-name|replace:\\\"/r//\\\":\\\"\\\"|trim|kebab-case}}",
 			"type": "text"
 		}
 	],
 	"triggers": [
 		"https://www.reddit.com"
 	],
-	"noteNameFormat": "{{selector:shreddit-post?created-timestamp|date:\"YYYY-MM-DD\"|safe_name}} REDDIT {{selector:shreddit-post?post-title|trim|safe_name}}",
-	"path": "Clippings/Posts"
+	"noteNameFormat": "{{selector:shreddit-post?post-title|safe_name|trim}} - {{selector:shreddit-post?subreddit-prefixed-name|safe_name}}",
+	"path": "Clippings/Posts",
+	"context": "# {{selector:shreddit-post?post-title|trim}}\n\n{{selectorHtml:shreddit-post > div[class=\"text-neutral-content\"]|markdown}}\n\n## Comments ({{selector:shreddit-comment-tree?totalcomments}})\n\n### {{selector:shreddit-comment-tree > shreddit-comment?author|first}}:\n> {{selector:shreddit-comment-tree > shreddit-comment > div[slot=comment]|first|markdown}}"
 }

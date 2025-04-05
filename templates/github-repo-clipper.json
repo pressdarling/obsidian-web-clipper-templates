@@ -48,6 +48,6 @@
 	"triggers": [
 		"https://github.com/"
 	],
-	"noteNameFormat": "{{meta:name:octolytics-dimension-user_login}} {{selector:#repo-title-component a}}: {{selector:.Layout-sidebar p|first}}",
+	"noteNameFormat": "{{meta:name:octolytics-dimension-user_login|safe_name|trim}} {{selector:#repo-title-component a|safe_name|trim}} - {{selector:.Layout-sidebar p|first|safe_name|trim}}",
 	"path": "Clippings/GitHub"
 }

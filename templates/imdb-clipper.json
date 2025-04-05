@@ -2,7 +2,7 @@
 	"schemaVersion": "0.1.0",
 	"name": "IMDB",
 	"behavior": "create",
-	"noteNameFormat": "{{schema:name|safe_name}}",
+	"noteNameFormat": "{{schema:name|safe_name|trim}}",
 	"path": "Clippings/Media",
 	"noteContentFormat": "",
 	"properties": [

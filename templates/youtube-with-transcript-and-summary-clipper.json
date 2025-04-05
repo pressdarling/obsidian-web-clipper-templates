@@ -51,7 +51,7 @@
 		"https://www.youtube.com",
 		"https://m.youtube.com"
 	],
-	"noteNameFormat": "{{title|safe_name|kebab}}",
+	"noteNameFormat": "{{title|safe_name|trim|kebab}}",
 	"path": "Clippings/Videos",
 	"context": "{{selectorHtml:ytd-engagement-panel-section-list-renderer[visibility$=\\\"EXPANDED\\\"] #segments-container|strip_tags:\"h2,ytd-transcript-segment-renderer\"|replace:\"ytd-transcript-segment-renderer\":\"li\"|replace:\"/\\d{1,2}\\W\\d{2}/gm\":\"\"|markdown|replace:\"/\\n-/gm\":\"\"}}"
 }

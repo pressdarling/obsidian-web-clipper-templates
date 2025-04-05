@@ -33,6 +33,6 @@
 	"triggers": [
 		"https://mail.google.com/mail"
 	],
-	"noteNameFormat": "{{selector:span[class=\"g3\"]?title|date:\"YYYY-MM-DD\"}} MAIL {{selector:div.ha > h2|safe_name}}",
+	"noteNameFormat": "{{selector:span[class=\"g3\"]?title|date:\"YYYY-MM-DD\"|safe_name}} MAIL {{selector:div.ha > h2|safe_name|trim}}",
 	"path": "Clippings/Mail"
 }

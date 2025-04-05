@@ -78,6 +78,6 @@
 	"triggers": [
 		"https://podcasts.apple.com/"
 	],
-	"noteNameFormat": "{{schema:@PodcastEpisode:datePublished|date:\"YYYY-MM-DD\"}} PODCAST {{schema:@PodcastEpisode:partOfSeries.name|safe_name}} {{schema:@PodcastEpisode:episodeNumber}} {{schema:@PodcastEpisode:name|safe_name}}",
+	"noteNameFormat": "{{schema:@PodcastEpisode:datePublished|date:\"YYYY-MM-DD\"|safe_name}} PODCAST {{schema:@PodcastEpisode:partOfSeries.name|safe_name}} {{schema:@PodcastEpisode:episodeNumber|safe_name|trim}} {{schema:@PodcastEpisode:name|safe_name|trim}}",
 	"path": "Clippings/Podcast"
 }

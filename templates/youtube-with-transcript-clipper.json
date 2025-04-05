@@ -58,6 +58,6 @@
 	"triggers": [
 		"https://www.youtube.com/watch"
 	],
-	"noteNameFormat": "{{schema:@VideoObject:uploadDate|date:\"YYYY-MM-DD\"|safe_name}} VIDEO {{schema:@VideoObject:author}} - {{schema:@VideoObject:name|safe_name|trim}}",
+	"noteNameFormat": "{{schema:@VideoObject:uploadDate|date:\"YYYY-MM-DD\"}} VIDEO {{schema:@VideoObject:author|safe_name|trim}} - {{schema:@VideoObject:name|safe_name|trim}}",
 	"path": "Clippings/Videos"
 }

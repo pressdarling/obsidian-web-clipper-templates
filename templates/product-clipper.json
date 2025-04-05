@@ -2,7 +2,7 @@
 	"schemaVersion": "0.1.0",
 	"name": "Product",
 	"behavior": "create",
-	"noteNameFormat": "{{title|safe_name}}",
+	"noteNameFormat": "{{title|safe_name|trim}}",
 	"path": "Clippings",
 	"noteContentFormat": "{{description}}",
 	"properties": [

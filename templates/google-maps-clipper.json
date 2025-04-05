@@ -2,7 +2,7 @@
 	"schemaVersion": "0.1.0",
 	"name": "Google Maps",
 	"behavior": "create",
-	"noteNameFormat": "{{selector:div[role=\"main\"]:aria-label}}",
+	"noteNameFormat": "{{selector:div[role=\"main\"]:aria-label|safe_name|trim}}",
 	"path": "Clippings/Maps",
 	"noteContentFormat": "",
 	"properties": [

@@ -2,7 +2,7 @@
 	"schemaVersion": "0.1.0",
 	"name": "Letterboxd",
 	"behavior": "create",
-	"noteNameFormat": "{{selector:.filmtitle|safe_name}}",
+	"noteNameFormat": "{{selector:.filmtitle|safe_name|trim}}",
 	"path": "Clippings/Media",
 	"noteContentFormat": "",
 	"properties": [
