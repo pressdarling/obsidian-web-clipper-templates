@@ -6,7 +6,7 @@
 	"properties": [
 		{
 			"name": "created",
-			"value": "{{time|date:\\\"YYYY-MM-DDTHH:mm:ssZ\\\"}}",
+			"value": "{{time|date:\\\"YYYY-MM-DD\\\"}}",
 			"type": "date"
 		},
 		{
@@ -21,7 +21,7 @@
 		},
 		{
 			"name": "tags",
-			"value": "source/reddit, {{selector:shreddit-post?subreddit-prefixed-name|replace:\\\"/r/\\\"|trim|kebab-case}}, reddit, post, {{\\\"5 keyword tags appropriate to the content of the posts and content for my Obsidian vault\\\"|kebab-case}}",
+			"value": "source/reddit, {{selector:shreddit-post?subreddit-prefixed-name|replace:\\\"/r/\\\"|trim|kebab-case}}, reddit, post, {{\\\"5 keyword tags appropriate to the content of the posts and content for my Obsidian vault, using kebab-case\\\"}}",
 			"type": "multitext"
 		},
 		{
