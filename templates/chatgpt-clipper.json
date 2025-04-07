@@ -42,7 +42,8 @@
 	],
 	"triggers": [
 		"https://chatgpt.com/share",
-		"https://chatgpt.com/c"
+		"https://chatgpt.com/c",
+		"https://chatgpt.com/g"
 	],
 	"noteNameFormat": "{{title|safe_name|trim}}",
 	"path": "Clippings/Chats"
