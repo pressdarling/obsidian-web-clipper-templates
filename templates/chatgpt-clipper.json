@@ -2,11 +2,11 @@
 	"schemaVersion": "0.1.0",
 	"name": "ChatGPT",
 	"behavior": "create",
-	"noteContentFormat": "{{selectorHtml:article[data-testid*=\"conversation-turn\"]|replace:\"/<svg.*?svg>/g\":\"### ChatGPT\\:\"|join:\"\\n\\n\"|markdown|replace:(\"\\\\###\":\"###\", \"##### You said\": \"### You:\")}}\n",
+	"noteContentFormat": "{{selectorHtml:article[data-testid*=\"conversation-turn\"]|replace:\"/<svg.*?svg>/g\":\"\"|join:\"\"|remove_html:(\".text-token-text-secondary,.text-token-text-tertiary\")|markdown|replace:(\"/\\s*###### ChatGPT said\\:\\s*/g\":\"\\n\\n[!ChatGPT-response]\\n\",\"/##### You said\\:\\s*/g\":\"[!ChatGPT-prompt]\\n\", \"/^(#{1,6} .*?) \\*\\*(.*)\\*\\*$/gm\":\"$1 $2\")|blockquote|replace:\"\\n> \\n> [!ChatGPT-\":\"\\n\\n> [!ChatGPT-\"}}",
 	"properties": [
 		{
 			"name": "title",
-			"value": "{{title}}",
+			"value": "{{selector:title}}",
 			"type": "text"
 		},
 		{
@@ -16,17 +16,12 @@
 		},
 		{
 			"name": "author",
-			"value": "{{author|split:\\\", \\\"|wikilink|join}}",
+			"value": "{{author}}",
 			"type": "multitext"
 		},
 		{
-			"name": "published",
-			"value": "{{published}}",
-			"type": "date"
-		},
-		{
 			"name": "created",
-			"value": "{{date}}",
+			"value": "{{time|date:\\\"YYYY-MM-DD HH:mm:ss\\\"}}",
 			"type": "date"
 		},
 		{
@@ -45,6 +40,6 @@
 		"https://chatgpt.com/c",
 		"https://chatgpt.com/g"
 	],
-	"noteNameFormat": "{{title|safe_name|trim}}",
+	"noteNameFormat": "{{selector:title|safe_name}} - ChatGPT",
 	"path": "Clippings/ChatGPT/Chats"
 }
