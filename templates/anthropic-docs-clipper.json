@@ -1,0 +1,59 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Anthropic Docs",
+	"behavior": "create",
+	"noteContentFormat": "{{selectorHtml:content-area|remove_html:(\".mt-14,.eyebrow\")|markdown}}\n\n## Main takeaways\n\n{{\"Five main takeaways in bullet point format - be clear, use language appropriate to the content\"}}",
+	"properties": [
+		{
+			"name": "title",
+			"value": "{{meta:name:og:title|safe_name}}",
+			"type": "text"
+		},
+		{
+			"name": "source",
+			"value": "{{domain}}",
+			"type": "text"
+		},
+		{
+			"name": "author",
+			"value": "{{author}}",
+			"type": "multitext"
+		},
+		{
+			"name": "published",
+			"value": "{{published|date:\\\"YYYY-MM-DD HH:mm:ss\\\"}}",
+			"type": "date"
+		},
+		{
+			"name": "created",
+			"value": "{{time|date:\\\"YYYY-MM-DD HH:mm:ss\\\"}}",
+			"type": "date"
+		},
+		{
+			"name": "description",
+			"value": "{{\\\"a summary of the page\\\"}}",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "clippings, {{author|kebab}}, {{site|kebab}}, {{meta:name:og:type|kebab}}, {{meta:name|kebab}}, {{\\\"a 1-2 word keyword for this content\\\"|kebab}}",
+			"type": "multitext"
+		},
+		{
+			"name": "url",
+			"value": "{{meta:property:og:url}}",
+			"type": "text"
+		},
+		{
+			"name": "words",
+			"value": "{{words}}",
+			"type": "text"
+		}
+	],
+	"triggers": [
+		"https://docs.anthropic.com/"
+	],
+	"noteNameFormat": "{{meta:name:og:title|safe_name}}",
+	"path": "Clippings",
+	"context": "{{selectorHtml:content-area|remove_html:(\".mt-14,.eyebrow\")|markdown}}"
+}

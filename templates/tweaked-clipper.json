@@ -1,8 +1,8 @@
 {
 	"schemaVersion": "0.1.0",
-	"name": "ChatGPT",
+	"name": "Tweaked",
 	"behavior": "create",
-	"noteContentFormat": "{{selectorHtml:article[data-testid*=\"conversation-turn\"]|replace:\"/<svg.*?svg>/g\":\"### ChatGPT\\:\"|join:\"\\n\\n\"|markdown|replace:(\"\\\\###\":\"###\", \"##### You said\": \"### You:\")}}\n",
+	"noteContentFormat": "{{contentHtml|markdown}}",
 	"properties": [
 		{
 			"name": "title",
@@ -21,12 +21,12 @@
 		},
 		{
 			"name": "published",
-			"value": "{{published}}",
+			"value": "{{published|date:\\\"YYYY-MM-DD HH:mm:ss\\\"}}",
 			"type": "date"
 		},
 		{
 			"name": "created",
-			"value": "{{date}}",
+			"value": "{{date|date:\\\"YYYY-MM-DD HH:mm:ss\\\"}}",
 			"type": "date"
 		},
 		{
@@ -36,15 +36,17 @@
 		},
 		{
 			"name": "tags",
-			"value": "chatgpt/conversation",
+			"value": "clippings, {{schema:@Type:key|kebab}}, {{site|kebab}}, {{schema:author|kebab}}, {{meta:name:keywords}}, ",
 			"type": "multitext"
+		},
+		{
+			"name": "url",
+			"value": "{{url}}",
+			"type": "text"
 		}
 	],
-	"triggers": [
-		"https://chatgpt.com/share",
-		"https://chatgpt.com/c",
-		"https://chatgpt.com/g"
-	],
-	"noteNameFormat": "{{title|safe_name|trim}}",
-	"path": "Clippings/ChatGPT/Chats"
+	"triggers": [],
+	"noteNameFormat": "{{title|safe_name}}",
+	"path": "Clippings",
+	"context": "{{contentHtml|markdown}}"
 }
