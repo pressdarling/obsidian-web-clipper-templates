@@ -3,7 +3,7 @@
 	"name": "YouTube",
 	"behavior": "create",
 	"noteNameFormat": "{{schema:author|safe_name|trim}} – {{schema:name|safe_name|trim}}",
-	"path": "Clipppings/Videos"
+	"path": "Clipppings/Videos",
 	"noteContentFormat": "![{{schema:name}}]({{url}})",
 	"properties": [
 		{
