@@ -66,12 +66,12 @@
 		},
 		{
 			"name": "tags",
-			"value": "{{"Identify 5-8 relevant tags for this job post that would be useful for categorizing it in a personal job search database. Return only the tags as a comma-separated list without explanations."}}",
+			"value": "{{\"Identify 5-8 relevant tags for this job post that would be useful for categorizing it in a personal job search database. Return only the tags as a comma-separated list without explanations.\"}}",
 			"type": "multitext"
 		},
 		{
 			"name": "keySkills",
-			"value": "{{"Identify 3-5 most critical skills for this role. Return only the skill names as a comma-separated list."}}",
+			"value": "{{\"Identify 3-5 most critical skills for this role. Return only the skill names as a comma-separated list.\"}}",
 			"type": "multitext"
 		}
 	],
@@ -80,6 +80,6 @@
 		"/indeed\\.com\\/.*viewjob/"
 	],
 	"noteNameFormat": "{{schema:title|safe_name}} - {{schema:hiringOrganization.name|safe_name}}",
-	"path": "Clippings/Jobs/{{date|date:\"YYYY/MM - Week WW\"}}""interpreterContext": "{{schema:description}}"
+	"path": "Clippings/Jobs/{{date|date:\"YYYY/MM - Week WW\"}}",
 	"interpreterContext": "{{schema:description}}"
 }

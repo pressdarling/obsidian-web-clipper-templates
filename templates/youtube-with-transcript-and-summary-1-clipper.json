@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "0.1.0",
+  "name": "YouTube with Summary and Timestamped Transcript",
+  "behavior": "create",
+  "noteContentFormat": "# {{meta:property:og:title}}\n\n## Summary\n\n{{\"A three-paragraph summary of the video based on the full transcript\"|blockquote}}\n\n## About\n\ntype:: #type/video/youtube/new\n\n## Embed\n\n![{{title}}]({{schema:@VideoObject:embedUrl|replace:\"embed/\":\"watch?v=\"}})\n\n## Description\n\n{{schema:@VideoObject:description}}\n\n## Transcript with timestamps\n\n{{selectorHtml:.ytd-transcript-segment-list-renderer|first|replace:\"&nbsp;\":\" \"|join|markdown}}\n\n{{selectorHtml:ytd-engagement-panel-section-list-renderer[visibility$=\\\"EXPANDED\\\"] #segments-container|strip_tags:\"h2,ytd-transcript-segment-renderer\"|replace:\"ytd-transcript-segment-renderer\":\"li\"|markdown}}",
+  "properties": [
+    {
+      "name": "title",
+      "value": "{{schema:@VideoObject:name}}",
+      "type": "text"
+    },
+    {
+      "name": "source",
+      "value": "{{url}}",
+      "type": "text"
+    },
+    {
+      "name": "author",
+      "value": "{{author|split:\\\", \\\"|wikilink|join}}",
+      "type": "multitext"
+    },
+    {
+      "name": "published",
+      "value": "{{schema:@VideoObject:uploadDate|date_modify:\\\"+10 hours\\\"|date:\\\"YYYY-MM-DD HH:mm:ss\\\"}}",
+      "type": "date"
+    },
+    {
+      "name": "created",
+      "value": "{{time|date:\\\"YYYY-MM-DD HH:mm:ss\\\"}}",
+      "type": "date"
+    },
+    {
+      "name": "description",
+      "value": "{{description|}}",
+      "type": "text"
+    },
+    {
+      "name": "tags",
+      "value": "clippings,{{schema:@VideoObject:genre|kebab}},{{meta:name:keywords|split:\", \"|kebab|join}}\", \"{{\\\"an array of tags for an obsidian vault, using snake case when there are multiple words. Omit the words tags:, return only the tags themselves.\\\"}}",
+      "type": "multitext"
+    },
+    {
+      "name": "duration",
+      "value": "{{schema:@VideoObject:duration|duration}}",
+      "type": "text"
+    }
+  ],
+  "triggers": [
+    "https://youtube.com",
+    "https://youtu.be",
+    "https://www.youtube.com",
+    "https://m.youtube.com"
+  ],
+  "noteNameFormat": "{{title|safe_name|trim|kebab}}",
+  "path": "Clippings/Videos",
+  "context": "# {{meta:property:og:title}}\n\n## About\n\ntype:: #type/video/youtube/new\n\n![{{title}}]({{schema:@VideoObject:embedUrl|replace:\"embed/\":\"watch?v=\"}})\n\n## Description\n\n{{schema:@VideoObject:description}}\n\n## Transcript with timestamps\n\n{{selectorHtml:.ytd-transcript-segment-list-renderer|first|replace:\"&nbsp;\":\" \"|join|markdown}}\n\n{{selectorHtml:ytd-engagement-panel-section-list-renderer[visibility$=\\\"EXPANDED\\\"] #segments-container|strip_tags:\"h2,ytd-transcript-segment-renderer\"|replace:\"ytd-transcript-segment-renderer\":\"li\"|markdown}}"
+}
