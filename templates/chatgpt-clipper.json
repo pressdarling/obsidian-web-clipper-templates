@@ -2,11 +2,11 @@
 	"schemaVersion": "0.1.0",
 	"name": "ChatGPT",
 	"behavior": "create",
-	"noteContentFormat": "{{selectorHtml:article[data-testid*=\"conversation-turn\"]|replace:\"/<svg.*?svg>/g\":\"\"|join:\"\"|remove_html:(\".text-token-text-secondary,.text-token-text-tertiary\")|markdown|replace:(\"/\\s*###### ChatGPT said\\:\\s*/g\":\"\\n\\n[!ChatGPT-response]\\n\",\"/##### You said\\:\\s*/g\":\"[!ChatGPT-prompt]\\n\", \"/^(#{1,6} .*?) \\*\\*(.*)\\*\\*$/gm\":\"$1 $2\")|blockquote|replace:\"\\n> \\n> [!ChatGPT-\":\"\\n\\n> [!ChatGPT-\"}}",
+	"noteContentFormat": "# {{title}}\n\n{{selectorHtml:article[data-testid*=\"conversation-turn\"]|replace:\"/(<https\\:\\/\\/docs\\.google.*?(?=\\\")).*?(Google Docs)/g\":\"[$2]($1)\"|replace:\"/<svg.*?svg>/g\":\"### ChatGPT\\:\"|join:\"\\n\\n\"|markdown|replace:(\"\\\\###\":\"###\",\"##### \":\"## \",\"\\\\.\":\".\")|replace:(\"### ChatGPT\\:\":\"\",\"/\\[\\n+/gm\":\"[\",/\\n+Google Docs\\n+/gm\":\"\")}}",
 	"properties": [
 		{
 			"name": "title",
-			"value": "{{selector:title}}",
+			"value": "{{title}}",
 			"type": "text"
 		},
 		{
@@ -16,12 +16,17 @@
 		},
 		{
 			"name": "author",
-			"value": "{{author}}",
+			"value": "{{author|split:\\\", \\\"|wikilink|join}}",
 			"type": "multitext"
 		},
 		{
+			"name": "published",
+			"value": "{{published}}",
+			"type": "date"
+		},
+		{
 			"name": "created",
-			"value": "{{time|date:\\\"YYYY-MM-DD HH:mm:ss\\\"}}",
+			"value": "{{date}}",
 			"type": "date"
 		},
 		{
@@ -31,15 +36,14 @@
 		},
 		{
 			"name": "tags",
-			"value": "chatgpt/conversation",
+			"value": "{{\\\"5-10 tags, 1-2 words each, kebab-case, comma-separated\\\"}},ChatGPT",
 			"type": "multitext"
 		}
 	],
 	"triggers": [
 		"https://chatgpt.com/share",
-		"https://chatgpt.com/c",
-		"https://chatgpt.com/g"
+		"https://chatgpt.com/c"
 	],
-	"noteNameFormat": "{{selector:title|safe_name}} - ChatGPT",
-	"path": "Clippings/ChatGPT/Chats"
+	"noteNameFormat": "{{title|safe_name}}",
+	"path": "Clippings/Claude/ChatGPT"
 }

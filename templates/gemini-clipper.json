@@ -1,0 +1,48 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Gemini 2.5 Clipper",
+	"behavior": "create",
+	"noteContentFormat": "# {{selector:.conversation-title.gds-label-l|trim|safe_name}}\n\nsaved: {{date|date:\"YYYY-MM-DD-HH-mm-ss\"}}\n\n{{selectorHtml:.chat-history-scroll-container|strip_attr:(\"class, id\")|replace:\"<user-query-content\":\"<h2>User Message<\\/h2><div\"|replace:\"<\\/user-query-content>\":\"</div>\\n\\n\"|replace:\"<model-thoughts\":\"<blockquote><h4>Model Thoughts\\<\\/h4<div\"|replace:\"</model-thoughts>\":\"<\\/div><\\/blockquote>\\n\\n\"|replace:\"<model-response\":\"<h2>Model Response<\\/h2><div\"|replace:\"<\\/model-response>\":\"<\\/div><hr>\"|markdown|replace:\"#### Model Thoughts\":\"[!Model Thoughts]\"|replace:\"/\\n\\n\\-\\-\\-(?!\\n\\n\\#)/gm\":\"\\n\"|replace:\"/(\\n\\n)[\\s\\n]+/gm\":\"$1\"}}",
+	"properties": [
+		{
+			"name": "title",
+			"value": "{{selector:.conversation-title.gds-label-l|trim|safe_name}}",
+			"type": "text"
+		},
+		{
+			"name": "source",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "author",
+			"value": "{{author|split:\\\", \\\"|wikilink|join}}",
+			"type": "multitext"
+		},
+		{
+			"name": "published",
+			"value": "{{published}}",
+			"type": "date"
+		},
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "description",
+			"value": "{{description}}",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "clippings,Gemini",
+			"type": "multitext"
+		}
+	],
+	"triggers": [
+		"https://gemini.google.com/app/"
+	],
+	"noteNameFormat": "{{selector:.conversation-title.gds-label-l|trim|safe_name}}",
+	"path": "Clippings/Chats/Gemini"
+}

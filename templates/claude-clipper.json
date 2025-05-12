@@ -26,7 +26,7 @@
 		},
 		{
 			"name": "created",
-			"value": "{{date|date:\"YYYY/MM - Week WW\"}}",
+			"value": "{{date}}",
 			"type": "date"
 		},
 		{
@@ -36,13 +36,13 @@
 		},
 		{
 			"name": "tags",
-			"value": "{{tags}},claude/conversation",
+			"value": "{{tags}},anthropic-claude",
 			"type": "multitext"
 		}
 	],
 	"triggers": [
 		"https://claude.ai/chat"
 	],
-	"noteNameFormat": "{{title|safe_name|trim}}",
-	"path": "Clippings/Claude/Chats"
+	"noteNameFormat": "{{title}}",
+	"path": "Clippings/Chats/Claude"
 }
