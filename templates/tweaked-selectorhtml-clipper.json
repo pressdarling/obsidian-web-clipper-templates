@@ -1,8 +1,8 @@
 {
 	"schemaVersion": "0.1.0",
-	"name": "Tweaked",
+	"name": "Tweaked selectorHTML",
 	"behavior": "create",
-	"noteContentFormat": "# {{title|safe_name}}\n\n{{contentHtml:body|markdown|replace:\"/\\(\\d?)\\\\(\\.)/g\":\"$1$2\"|replace:\"/(\\n)\\\\/g\":\"\"}}",
+	"noteContentFormat": "# {{title|safe_name}}\n\n{{selectorHtml:body|markdown|replace:\"/\\(\\d?)\\\\(\\.)/g\":\"$1$2\"|replace:\"/(\\n)\\\\/g\":\"\"}}",
 	"properties": [
 		{
 			"name": "title",
@@ -53,5 +53,5 @@
 	"triggers": [],
 	"noteNameFormat": "{{title|safe_name}}",
 	"path": "Clippings",
-	"context": "# {{title|safe_name}}\n\n{{contentHtml:body|markdown|replace:\"/\\(\\d?)\\\\(\\.)/g\":\"$1$2\"|replace:\"/(\\n)\\\\/g\":\"\"}}"
+	"context": "# {{title|safe_name}}\n\n{{selectorHtml:body|markdown|replace:\"/\\(\\d?)\\\\(\\.)/g\":\"$1$2\"|replace:\"/(\\n)\\\\/g\":\"\"}}"
 }

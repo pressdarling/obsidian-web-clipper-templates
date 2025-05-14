@@ -1,0 +1,48 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Medium Article",
+	"behavior": "create",
+	"noteContentFormat": "# {{schema:@NewsArticle:headline}}\nBy {{schema:@NewsArticle:author.name|safe_name}}\nPublished: {{schema:@NewsArticle:datePublished|date:\"YYYY-MM-DD\"}}\n\n{{content}}",
+	"properties": [
+		{
+			"name": "url",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "title",
+			"value": "{{schema:@NewsArticle:headline|safe_name}}",
+			"type": "text"
+		},
+		{
+			"name": "author",
+			"value": "{{schema:@NewsArticle:author.name}}",
+			"type": "multitext"
+		},
+		{
+			"name": "description",
+			"value": "{{schema:@NewsArticle:description}}",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "clippings, medium",
+			"type": "multitext"
+		},
+		{
+			"name": "published",
+			"value": "{{schema:@NewsArticle:datePublished|date:\\\"YYYY-MM-DD\\\"}}",
+			"type": "date"
+		},
+		{
+			"name": "created",
+			"value": "{{time|date:\\\"YYYY-MM-DDTHH:mm:ssZ\\\"}}",
+			"type": "date"
+		}
+	],
+	"triggers": [
+		"https://medium.com"
+	],
+	"noteNameFormat": "{{schema:@NewsArticle:datePublished|date:\"YYYY-MM-DD\"}} MEDIUM {{schema:@NewsArticle:headline|safe_name}}",
+	"path": "Clippings/Posts/Medium"
+}

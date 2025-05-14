@@ -2,11 +2,11 @@
 	"schemaVersion": "0.1.0",
 	"name": "Claude",
 	"behavior": "create",
-	"noteContentFormat": "{{selectorHtml:div[data-test-render-count]|replace:\"/<div class=\\\\\\\"font-claude-message.*?mr-9\\\\\\\">/g\":\"### Claude\"|join:\"\\n\\n\"|markdown|replace:(\"\\\\###\":\"###\", \"BC\": \"### You:\", \"pythonCopy\":\"\")}}",
+	"noteContentFormat": "# {{title|safe_name}}\n\n{{selectorHtml:div[data-test-render-count]|replace:\" tabindex=\\\"-1\\\"\":\"\"|replace:\"/<div[^?].*data-test-id=\\\"user-message\\\" (.*?)<\\/div>/g\":\"<h2>You said\\:<\\/h2><div\"|replace:\"/\\<svg.*?\\/svg>/g\":\"\"|replace:\"/<div[^<]*?pt-0 pr-8\\\">(.*?)\\/div>/g\":\"<blockquote>$1<\\/blockquote>\"|replace:\"/<div class=\\\\\\\"font-claude-message.*?mr-9\\\\\\\">/g\":\"### Claude\"|join:\"\\n---\\n\"|markdown|replace:\"\\\\---\":\"---\"|replace:\"\\\\###\":\"###\"|replace:\"\\\\. \":\". \"|replace:\"BC\":\"## User\\n\\n\"|replace:\"pythonCopy\":\"\")}}",
 	"properties": [
 		{
 			"name": "title",
-			"value": "{{title}}",
+			"value": "{{title|safe_name}}",
 			"type": "text"
 		},
 		{
@@ -43,6 +43,6 @@
 	"triggers": [
 		"https://claude.ai/chat"
 	],
-	"noteNameFormat": "{{title}}",
+	"noteNameFormat": "{{title|safe_name}}",
 	"path": "Clippings/Chats/Claude"
 }
