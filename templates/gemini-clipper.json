@@ -2,7 +2,7 @@
 	"schemaVersion": "0.1.0",
 	"name": "Gemini 2.5 Clipper",
 	"behavior": "create",
-	"noteContentFormat": "# {{selector:.conversation-title.gds-label-l|trim|safe_name}}\n\nsaved: {{date|date:\"YYYY-MM-DD-HH-mm-ss\"}}\n\n{{selectorHtml:.chat-history-scroll-container|strip_attr:(\"class, id\")|replace:\"<user-query-content\":\"<h2>User Message<\\/h2><div\"|replace:\"<\\/user-query-content>\":\"</div>\\n\\n\"|replace:\"<model-thoughts\":\"<blockquote><h4>Model Thoughts\\<\\/h4<div\"|replace:\"</model-thoughts>\":\"<\\/div><\\/blockquote>\\n\\n\"|replace:\"<model-response\":\"<h2>Model Response<\\/h2><div\"|replace:\"<\\/model-response>\":\"<\\/div><hr>\"|markdown|replace:\"#### Model Thoughts\":\"[!Model Thoughts]\"|replace:\"/\\n\\n\\-\\-\\-(?!\\n\\n\\#)/gm\":\"\\n\"|replace:\"/(\\n\\n)[\\s\\n]+/gm\":\"$1\"}}",
+	"noteContentFormat": "# {{selector:.conversation-title.gds-label-l|trim|safe_name}}\n\nsaved: {{date|date:\"YYYY-MM-DD-HH-mm-ss\"}}\n\n{{selectorHtml:.chat-history-scroll-container|strip_attr:(\"class, id\")|replace:\"<user-query-content\":\"<h2>User Message<\\/h2><div\"|replace:\"<\\/user-query-content>\":\"</div>\\n\\n\"|replace:\"<model-thoughts\":\"<blockquote><h4>Model Thoughts\\<\\/h4<div\"|replace:\"</model-thoughts>\":\"<\\/div><\\/blockquote>\\n\\n\"|replace:\"<model-response\":\"<h2>Model Response<\\/h2><div\"|replace:\"<\\/model-response>\":\"<\\/div><hr>\"|markdown|replace:\"#### Model Thoughts\":\"[!Model Thoughts]\"|replace:\"/\\n\\n\\-\\-\\-(?!\\n\\n\\#)/gm\":\"\\n\"|replace:\"/(\\n\\n)[\\s\\n]+/gm\":\"$1\"|replace:\"/(\\w+\\n)[\\t\\s]+(`{3})\\n((?:\\t+(.*?\\n))+)[\\t\\s]+(\\2)/gm\":\"\\n\\n$2$1$3$2\\n\"|replace:\"Code snippet\\n\\n```\":\"```\"}}",
 	"properties": [
 		{
 			"name": "title",
